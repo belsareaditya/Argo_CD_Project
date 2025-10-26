@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
       - name: grade-submission-api
-        image: belsareaditya/vault_guard:latest
+        image: rslim087/kubernetes-course-grade-submission-api:stateless
         ports:
           - containerPort: 3000
