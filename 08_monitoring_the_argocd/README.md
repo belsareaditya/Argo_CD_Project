@@ -163,7 +163,7 @@ kubectl apply -f online-shop-app.yaml
 
     ![online-shop](output_images/image-7.png)
 
-    ![online-shop-ui](output_images/image-8.png)
+  
 
 
 ---
