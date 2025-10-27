@@ -37,5 +37,8 @@ To verify, you can get all grades with:
 ```bash
 curl http://localhost:<port>/grades
 ```
+Install the Values.yaml to get Svc install for Monitoring.
+helm upgrade --install argocd argo/argo-cd -n argocd -f .\values_svc.yaml
+
 
 
