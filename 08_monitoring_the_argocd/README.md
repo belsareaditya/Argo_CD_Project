@@ -170,6 +170,10 @@ kubectl apply -f online-shop-app.yaml
 
 ## Step 5: Access Grafana & Import Dashboards
 
+## Get the password of of Prometheus
+```bash
+kubectl --namespace monitoring get secret kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
+```
 ```bash
 kubectl port-forward svc/kube-prometheus-stack-grafana -n monitoring 3000:80 --address=0.0.0.0 &
 # Login: admin/prom-operator
