@@ -180,7 +180,7 @@ kubectl apply -f online-shop-app.yaml
 kubectl --namespace monitoring get secret kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
 ```
 ```bash
-kubectl port-forward svc/kube-prometheus-stack-grafana -n monitoring 3000:80 --address=0.0.0.0 &
+kubectl port-forward svc/kube-prometheus-stack-grafana -n monitoring 3001:80 --address=0.0.0.0
 # Login: admin/prom-operator
 ```
 
