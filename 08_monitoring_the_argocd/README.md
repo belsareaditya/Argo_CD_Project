@@ -107,8 +107,7 @@ helm upgrade --install argocd argo/argo-cd -n argocd -f argocd-values.yaml
 
 ```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-kubectl create namespace monitoring
-helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack -n monitoring
+helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack -n argocd
 ```
 
 > The kube-prometheus-stack is a collection of essential tools for Kubernetes monitoring, bundling everything together for a simpler installation, It installs/deploy `Prometheus`, `Grafana`, `Prometheus Operator`, `Alertmanager`, `Node Exporter`, and `Kube-State-Metrics`.
@@ -180,10 +179,11 @@ helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheu
 
 ## Get the password of of Prometheus
 ```bash
-kubectl --namespace monitoring get secret kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
+kubectl --namespace argocd get secret kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | % { [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($_)) }
 ```
 ```bash
-kubectl port-forward svc/kube-prometheus-stack-grafana -n monitoring 3001:80 --address=0.0.0.0
+kubectl port-forward svc/kube-prometheus-stack-prometheus -n argocd 9090:9090 --address=0.0.0.0
+
 # Login: admin/prom-operator
 ```
 
