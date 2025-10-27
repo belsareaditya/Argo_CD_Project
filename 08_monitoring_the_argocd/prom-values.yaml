@@ -1,4 +1,15 @@
+cat <<EOF > prom-values.yaml
 prometheus:
   prometheusSpec:
+    serviceMonitorNamespaceSelector:
+      matchNames:
+      - argocd
     serviceMonitorSelector: {}
-    serviceMonitorNamespaceSelector: {}
+    retention: 15d
+    scrapeInterval: 30s
+
+grafana:
+  adminUser: admin
+  ingress:
+    enabled: false
+EOF
