@@ -172,7 +172,10 @@ kubectl apply -f online-shop-app.yaml
 
 
 ---
-
+## As the Monitoring is in another namespace so , Used to make it accesible across all the namespace
+```bash
+helm upgrade --install kube-prometheus-stack prometheus-community/kube-prometheus-stack -n monitoring -f .\prom-values.yaml
+```
 ## Step 5: Access Grafana & Import Dashboards
 
 ## Get the password of of Prometheus
