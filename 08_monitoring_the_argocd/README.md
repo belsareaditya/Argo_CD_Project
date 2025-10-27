@@ -95,6 +95,12 @@ ArgoCD exposes metrics by default, if you installed ArgoCD with Manifests method
 
 ![argocd-services](output_images/image-1.png)
 
+
+## Create a SVC for metrics
+```bash
+helm repo update
+helm upgrade --install argocd argo/argo-cd -n argocd -f argocd-values.yaml
+```
 ---
 
 ## Step 2: Install Prometheus & Grafana
