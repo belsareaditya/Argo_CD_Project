@@ -156,8 +156,7 @@ kubectl apply -f online-shop-app.yaml
 
     ![chai-app](output_images/image-5.png)
 
-    ![chai-app-working-ui](output_images/image-6.png)
-
+    
 
 * `online-shop`:
 
