@@ -1,0 +1,13 @@
+controller:
+  metrics:
+    enabled: true
+
+server:
+  metrics:
+    enabled: true
+  service:
+    type: ClusterIP
+
+repoServer:
+  metrics:
+    enabled: true
