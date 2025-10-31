@@ -359,7 +359,7 @@ kubectl port-forward svc/kube-prometheus-stack-prometheus -n monitoring 9090:909
 
 ## Step 6: Access Grafana Password
 ```bash
-kubectl -n argocd get secret kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 --decode && echo
+kubectl -n monitoring get secret kube-prometheus-stack-grafana -o jsonpath="{.data.admin-password}" | base64 --decode && echo
 ```
 
 ## Step 5: Access Grafana & Import Dashboards
